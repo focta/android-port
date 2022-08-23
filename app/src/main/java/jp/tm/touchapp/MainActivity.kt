@@ -1,11 +1,13 @@
 package jp.tm.touchapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
-import java.util.*
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -13,24 +15,44 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.d("Debug", "onCreate()")
-        val ut:TextView = findViewById(R.id.uranaiText)
-        val ub:Button = findViewById(R.id.uranaiBtn)
+        // レイアウトからファイル取得
+        val et1:EditText = findViewById(R.id.et1)
+        val et2:EditText = findViewById(R.id.et2)
+        val tvAns:TextView = findViewById(R.id.tvAns)
+        val btnAdd:Button = findViewById(R.id.btnAdd)
+        val btnClear:Button = findViewById(R.id.btnClear)
 
-        ub.setOnClickListener {
-            // 配列のサイズの確認、sizeでもcount()でも対応できる・・・、どう違うのだろう
-//            val uranai = arrayOf("大吉", "中吉", "小吉", "凶")
-//            val num = Random().nextInt(uranai.count())
-            val uranai = arrayOf(11, 12, 13, 14)
-            Log.d("Debug count", uranai.count().toString())
-            Log.d("Debug size", uranai.size.toString())
+        // クリック処理
+        btnAdd.setOnClickListener {
+            Log.d("Debug", "btnAdd onClick")
+            if (et1.text.toString().equals("") || et2.text.toString().equals("")) {
+                Log.d("Debug", "EditText Empty")
+                // トースト
+//                Toast.makeText(this, "数字を入力してください", Toast.LENGTH_LONG).show()
 
-            val num = Random().nextInt(uranai.count())
+                // アラート用のダイアログ
+                AlertDialog.Builder(this)
+                    .setTitle("ERRROR!")
+                    .setMessage("数字を入力してください")
+                    .setPositiveButton("OK", null)
+                    .show()
 
-//            ut.text = num.toString()
-            ut.text = uranai.get(num).toString()
-            Log.d("Debug", "お試し")
+            } else {
+                // EditableTextはEditableText型なので、数値型に変換するまでにいくつかの手順を踏む
+                // EditableText => String => int と変換する
+                val sum:Int = et1.text.toString().toInt() + et2.text.toString().toInt()
+                tvAns.text = "合計は" + sum
+            }
         }
+
+        // クリアの設定
+        btnClear.setOnClickListener {
+            et1.text.clear()
+            et2.text.clear()
+            tvAns.text = "答え"
+        }
+        Log.d("Debug", "onCreate()")
+
     }
 
     override fun onStart() {
