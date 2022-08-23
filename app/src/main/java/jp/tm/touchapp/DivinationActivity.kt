@@ -7,15 +7,14 @@ import android.widget.Button
 import android.widget.TextView
 import java.util.*
 
-
-class MainActivity : AppCompatActivity() {
+class DivinationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_divination)
 
         Log.d("Debug", "onCreate()")
-        val ut:TextView = findViewById(R.id.uranaiText)
-        val ub:Button = findViewById(R.id.uranaiBtn)
+        val ut: TextView = findViewById(R.id.uranaiText)
+        val ub: Button = findViewById(R.id.uranaiBtn)
 
         ub.setOnClickListener {
             // 配列のサイズの確認、sizeでもcount()でも対応できる・・・、どう違うのだろう
