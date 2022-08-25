@@ -1,28 +1,27 @@
 package jp.tm.touchapp
 
-import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import androidx.appcompat.app.AppCompatActivity
+import android.view.MotionEvent
+import android.widget.ImageView
 
-
-class MainActivity : AppCompatActivity() {
-
+class NekoPunchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_neko_punch)
         Log.d("Debug", "onCreate()")
+    }
 
-        val et: EditText = findViewById(R.id.et3)
-        val btnStart: Button = findViewById(R.id.btnStart1)
-
-        btnStart.setOnClickListener {
-            val intent = Intent(this, SecondPutExtraActivity::class.java)
-            intent.putExtra("MY_NAME", et.text.toString())
-            startActivity(intent)
+    // 画面のタッチ時のイベントの記載
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        val iv: ImageView = findViewById(R.id.iv)
+        when(event?.action) {
+            MotionEvent.ACTION_DOWN -> iv.setImageResource(R.drawable.cat02)
+            MotionEvent.ACTION_MOVE -> iv.setImageResource(R.drawable.cat03)
+            MotionEvent.ACTION_UP -> iv.setImageResource(R.drawable.cat01)
         }
+        return super.onTouchEvent(event)
     }
 
     override fun onStart() {

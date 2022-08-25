@@ -1,29 +1,24 @@
 package jp.tm.touchapp
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.EditText
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.result.contract.ActivityResultContracts
 
-
-class MainActivity : AppCompatActivity() {
-
+class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        Log.d("Debug", "onCreate()")
+        setContentView(R.layout.activity_second)
 
-        val et: EditText = findViewById(R.id.et3)
-        val btnStart: Button = findViewById(R.id.btnStart1)
+        val btnBack : Button = findViewById(R.id.btnBack)
 
-        btnStart.setOnClickListener {
-            val intent = Intent(this, SecondPutExtraActivity::class.java)
-            intent.putExtra("MY_NAME", et.text.toString())
-            startActivity(intent)
+        btnBack.setOnClickListener {
+            finish()
         }
     }
+
 
     override fun onStart() {
         super.onStart()
