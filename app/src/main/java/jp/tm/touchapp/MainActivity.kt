@@ -7,39 +7,82 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
 
 class MainActivity : AppCompatActivity() {
+
+    // 正解用の判定の配列
+    private val quizData = arrayOf("A0","A1","A2","A3")
+    private var i = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d("Debug", "onCreate()")
 
-        val tvScore: TextView = findViewById(R.id.tvScore)
-        val btnMinus: Button = findViewById(R.id.btnMinus)
-        val btnPlus: Button = findViewById(R.id.btnPlus)
-        var num = 0
+        val tvCount: TextView = findViewById(R.id.tvCount)
+        val tvQuestion: TextView = findViewById(R.id.tvQuestion)
+        val btnQuestion1: TextView = findViewById(R.id.btnQuestion1)
+        val btnQuestion2: TextView = findViewById(R.id.btnQuestion2)
+        val btnQuestion3: TextView = findViewById(R.id.btnQuestion3)
+        val btnQuestion4: TextView = findViewById(R.id.btnQuestion4)
 
-        btnMinus.setOnClickListener {
-            num--
-            if (num <= -5) {
-                val intent = Intent(this, GameOverActivity::class.java)
-                startActivity(intent)
-                finish()
+        //　ボタンのテキストの並べ替え
+        val list = listOf(0,1,2,3)
+        val num = list.shuffled()
+        btnQuestion1.text = quizData[num[0]]
+        btnQuestion2.text = quizData[num[1]]
+        btnQuestion3.text = quizData[num[2]]
+        btnQuestion4.text = quizData[num[3]]
+
+        btnQuestion1.setOnClickListener {
+            if(btnQuestion1.text == quizData[i]) {
+                correctAns()
+                i++
+                btnQuestion1.isEnabled = false
+                tvCount.text = i.toString() + "問正解"
+                if (i == 4) tvQuestion.text = "全問正解！"
+            } else {
+                incorrectAns()
             }
-            tvScore.text = num.toString()
         }
 
-        btnPlus.setOnClickListener {
-            num++
-            if (num >= 5) {
-                val intent = Intent(this, GameClearActivity::class.java)
-                startActivity(intent)
+        btnQuestion2.setOnClickListener {
+            if(btnQuestion2.text == quizData[i]) {
+                correctAns()
+                i++
+                btnQuestion2.isEnabled = false
+                tvCount.text = i.toString() + "問正解"
+                if (i == 4) tvQuestion.text = "全問正解！"
+            } else {
+                incorrectAns()
             }
+        }
 
-            tvScore.text = num.toString()
+        btnQuestion3.setOnClickListener {
+            if(btnQuestion3.text == quizData[i]) {
+                correctAns()
+                i++
+                btnQuestion3.isEnabled = false
+                tvCount.text = i.toString() + "問正解"
+                if (i == 4) tvQuestion.text = "全問正解！"
+            } else {
+                incorrectAns()
+            }
+        }
+
+        btnQuestion4.setOnClickListener {
+            if(btnQuestion4.text == quizData[i]) {
+                correctAns()
+                i++
+                btnQuestion4.isEnabled = false
+                tvCount.text = i.toString() + "問正解"
+                if (i == 4) tvQuestion.text = "全問正解！"
+            } else {
+                incorrectAns()
+            }
         }
 
     }
@@ -67,5 +110,27 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d("Debug", "onDestroy()")
+    }
+
+    private fun correctAns() {
+        AlertDialog.Builder(this)
+            .setTitle("正解")
+            .setMessage(quizData[i])
+            .setPositiveButton("OK", null)
+            .show()
+    }
+
+    private fun incorrectAns() {
+        val tvQuestion: TextView = findViewById(R.id.tvQuestion)
+        val btnQuestion1: TextView = findViewById(R.id.btnQuestion1)
+        val btnQuestion2: TextView = findViewById(R.id.btnQuestion2)
+        val btnQuestion3: TextView = findViewById(R.id.btnQuestion3)
+        val btnQuestion4: TextView = findViewById(R.id.btnQuestion4)
+
+        tvQuestion.text = "不正解! Game Over"
+        btnQuestion1.isEnabled =false
+        btnQuestion2.isEnabled =false
+        btnQuestion3.isEnabled =false
+        btnQuestion4.isEnabled =false
     }
 }
