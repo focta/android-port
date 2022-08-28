@@ -7,14 +7,13 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity() {
-
+class CatchCopyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_catch_copy)
         Log.d("Debug", "onCreate()")
 
-        val et:EditText = findViewById(R.id.etCatchCopy)
+        val et: EditText = findViewById(R.id.etCatchCopy)
         val btnStart: Button =findViewById(R.id.btnStart2)
 
 
