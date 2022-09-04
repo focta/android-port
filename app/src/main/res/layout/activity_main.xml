@@ -8,35 +8,58 @@
 
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/tvCountDown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="キャッチコピー自動生成アプリ"
-        android:textSize="24sp"
+        android:text="00:00"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etCatchCopy"
+    <Button
+        android:id="@+id/btnCountDownStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="アイテムを入力してね"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="START"
+        app:layout_constraintEnd_toStartOf="@+id/btnCountDownStop"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/tvCountDown" />
 
     <Button
-        android:id="@+id/btnStart2"
+        android:id="@+id/btnCountDownStop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="自動生成"
+        android:layout_marginTop="32dp"
+        android:text="STOP"
+        app:layout_constraintEnd_toStartOf="@+id/btnCountDownRestart"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnCountDownStart"
+        app:layout_constraintTop_toBottomOf="@+id/tvCountDown" />
+
+    <Button
+        android:id="@+id/btnCountDownRestart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="RESTART"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCatchCopy" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnCountDownStop"
+        app:layout_constraintTop_toBottomOf="@+id/tvCountDown" />
+
+    <Button
+        android:id="@+id/btnCountDownReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

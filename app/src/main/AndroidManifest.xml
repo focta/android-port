@@ -14,6 +14,18 @@
         android:theme="@style/Theme.TouchApp"
         tools:targetApi="31">
         <activity
+            android:name=".FirstMediaPlayerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FirstTodoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListView2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".ListViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".CatchCopyActivity"
             android:exported="false" />
         <activity

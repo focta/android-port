@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class CatchCopyActivity : AppCompatActivity() {
@@ -18,9 +19,14 @@ class CatchCopyActivity : AppCompatActivity() {
 
 
         btnStart.setOnClickListener {
-            val intent = Intent(this, ResultActivity::class.java)
-            intent.putExtra("MY_ITEM", et.text.toString())
-            startActivity(intent)
+            if (et.text.toString()=="") {
+                Toast.makeText(this,"なんかかいてやー", Toast.LENGTH_LONG).show()
+                Log.d("Debug", "et null")
+            } else {
+                val intent = Intent(this, ResultActivity::class.java)
+                intent.putExtra("MY_ITEM", et.text.toString())
+                startActivity(intent)
+            }
         }
     }
 
