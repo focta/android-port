@@ -1,5 +1,6 @@
 package jp.tm.touchapp
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -13,6 +14,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var timer:CountDownTimer
 
     private var remainingTime: Long = 0
+
+    private lateinit var mp: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,6 +67,9 @@ class MainActivity : AppCompatActivity() {
             btnStart.isEnabled = true
             btnStop.isEnabled = false
             btnReStart.isEnabled = true
+
+            mp.stop()
+            mp.release()
         }
     }
 
@@ -108,9 +114,15 @@ class MainActivity : AppCompatActivity() {
                 remainingTime = p0
             }
 
-            //
+            // タイマー終了時のメソッド
             override fun onFinish() {
                 tv.text = "タイムアップ"
+
+                // MediaPlayer.create をメソッドでは、
+                // this か this@(Activity名)　のどちらかを起泡しておけばなんとかなるかも・・・
+                mp = MediaPlayer.create(this@MainActivity, R.raw.timeup)
+                mp.isLooping = true
+                mp.start()
 
                 btnStart.isEnabled = true
                 btnStop.isEnabled = false
