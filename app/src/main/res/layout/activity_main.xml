@@ -7,59 +7,13 @@
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/tvCountDown"
+    <Button
+        android:id="@+id/btnToMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="00:00"
-        android:textSize="34sp"
+        android:text="移動する"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnCountDownStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="START"
-        app:layout_constraintEnd_toStartOf="@+id/btnCountDownStop"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCountDown" />
-
-    <Button
-        android:id="@+id/btnCountDownStop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="STOP"
-        app:layout_constraintEnd_toStartOf="@+id/btnCountDownRestart"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnCountDownStart"
-        app:layout_constraintTop_toBottomOf="@+id/tvCountDown" />
-
-    <Button
-        android:id="@+id/btnCountDownRestart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="RESTART"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnCountDownStop"
-        app:layout_constraintTop_toBottomOf="@+id/tvCountDown" />
-
-    <Button
-        android:id="@+id/btnCountDownReset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
