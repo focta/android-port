@@ -27,7 +27,7 @@ class ListViewActivity : AppCompatActivity() {
 
         lv.adapter = adapter
 
-        lv.setOnItemClickListener { adapterView, view , i, l ->
+        lv.setOnItemClickListener { _, _ , i, _ ->
             Toast.makeText(this, data[i], Toast.LENGTH_LONG).show()
         }
     }
