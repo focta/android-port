@@ -1,17 +1,13 @@
 package jp.tm.touchapp
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity() {
-
+class FragmentBaseSecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        Log.d("Debug", "onCreate()")
-
+        setContentView(R.layout.activity_fragment_base_second)
     }
 
     override fun onStart() {
