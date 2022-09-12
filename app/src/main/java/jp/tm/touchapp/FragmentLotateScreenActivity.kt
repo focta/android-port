@@ -1,24 +1,16 @@
 package jp.tm.touchapp
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var recyclerView: RecyclerView
-
+class FragmentLotateScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_fragment_lotate_screen)
+
         Log.d("Debug", "onCreate()")
 
-        val recyclerView = findViewById<RecyclerView>(R.id.rvCustom)
-        recyclerView.adapter = RecycleCustomeAdapter()
-
-        recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
     override fun onStart() {

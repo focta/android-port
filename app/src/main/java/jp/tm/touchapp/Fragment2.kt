@@ -44,8 +44,6 @@ class Fragment2 : Fragment() {
             val itemPosition = requireActivity().intent.getIntExtra("POSITION", 0)
             tv.text = arrayMessage[itemPosition]
         }
-
         return screen2
     }
-
 }

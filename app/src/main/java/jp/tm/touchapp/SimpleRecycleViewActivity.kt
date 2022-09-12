@@ -1,24 +1,26 @@
 package jp.tm.touchapp
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class MainActivity : AppCompatActivity() {
+class SimpleRecycleViewActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_simple_recycle_view)
+
         Log.d("Debug", "onCreate()")
 
-        val recyclerView = findViewById<RecyclerView>(R.id.rvCustom)
-        recyclerView.adapter = RecycleCustomeAdapter()
-
+        recyclerView = findViewById(R.id.rv)
+        recyclerView.adapter = RecyclerAdapter()
+        // 縦に並べる
         recyclerView.layoutManager = LinearLayoutManager(this)
+
     }
 
     override fun onStart() {
