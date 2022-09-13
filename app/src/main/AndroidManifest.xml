@@ -16,6 +16,9 @@
         android:theme="@style/Theme.TouchApp"
         tools:targetApi="31">
         <activity
+            android:name=".RecyclerCustomActivity"
+            android:exported="false" />
+        <activity
             android:name=".SimpleRecycleViewActivity"
             android:exported="false" />
         <activity
