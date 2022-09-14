@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         val thirdBtn = findViewById<ImageButton>(R.id.mainTabBtnThird)
         val forthBtn = findViewById<ImageButton>(R.id.mainTabBtnForth)
 
+        // ホームアイコンのタップ時のアクション
         firstBtn.setOnClickListener {
             val bundle = Bundle()
             bundle.putInt("POSITION", 1)
