@@ -30,7 +30,7 @@
             android:background="@color/white"
             android:padding="10dp"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/icon4" />
+            app:srcCompat="@drawable/home_icon" />
 
         <ImageButton
             android:id="@+id/mainTabBtnSecond"
