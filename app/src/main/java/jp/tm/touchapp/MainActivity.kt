@@ -2,6 +2,9 @@ package jp.tm.touchapp
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +16,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d("Debug", "onCreate()")
+
+        val firstBtn = findViewById<ImageButton>(R.id.mainTabBtnFirst)
+        val secondBtn = findViewById<ImageButton>(R.id.mainTabBtnSecond)
+        val thirdBtn = findViewById<ImageButton>(R.id.mainTabBtnThird)
+        val forthBtn = findViewById<ImageButton>(R.id.mainTabBtnForth)
+
+        firstBtn.setOnClickListener {
+            Toast.makeText(this, "First", Toast.LENGTH_SHORT).show()
+        }
+
+        secondBtn.setOnClickListener {
+            Toast.makeText(this, "Second", Toast.LENGTH_SHORT).show()
+        }
+
+        thirdBtn.setOnClickListener {
+            Toast.makeText(this, "Third", Toast.LENGTH_SHORT).show()
+        }
+
+        forthBtn.setOnClickListener {
+            Toast.makeText(this, "Forth", Toast.LENGTH_SHORT).show()
+        }
 
     }
 

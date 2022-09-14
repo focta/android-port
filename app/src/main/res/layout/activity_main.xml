@@ -23,38 +23,42 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/mainTabBtnFirst"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/white"
+            android:padding="10dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/icon4" />
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/mainTabBtnSecond"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/white"
+            android:padding="10dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/icon3" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/mainTabBtnThird"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/white"
+            android:padding="10dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/icon2" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/mainTabBtnForth"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/white"
+            android:padding="10dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/icon1" />
     </LinearLayout>
