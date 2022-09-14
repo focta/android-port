@@ -23,7 +23,14 @@ class MainActivity : AppCompatActivity() {
         val forthBtn = findViewById<ImageButton>(R.id.mainTabBtnForth)
 
         firstBtn.setOnClickListener {
-            Toast.makeText(this, "First", Toast.LENGTH_SHORT).show()
+            val bundle = Bundle()
+            bundle.putInt("POSITION", 1)
+            val fragment2 = Fragment2()
+            fragment2.arguments = bundle
+
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.mainFragment, fragment2)
+                .commit()
         }
 
         secondBtn.setOnClickListener {
