@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/mainFragment2">
+
+    <fragment
+        android:id="@+id/mainFragment2"
+        android:name="jp.tm.touchapp.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment2_to_toDoDetailFragment"
+            app:destination="@id/toDoDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" />
+        <action
+            android:id="@+id/action_mainFragment2_to_createToDoFragment"
+            app:destination="@id/createToDoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createToDoFragment"
+        android:name="jp.tm.touchapp.CreateToDoFragment"
+        android:label="fragment_create_to_do"
+        tools:layout="@layout/fragment_create_to_do" />
+    <fragment
+        android:id="@+id/editToDoFragment"
+        android:name="jp.tm.touchapp.EditToDoFragment"
+        android:label="fragment_edit_to_do"
+        tools:layout="@layout/fragment_edit_to_do" />
+    <fragment
+        android:id="@+id/toDoDetailFragment"
+        android:name="jp.tm.touchapp.ToDoDetailFragment"
+        android:label="fragment_to_do_detail"
+        tools:layout="@layout/fragment_to_do_detail" >
+        <action
+            android:id="@+id/action_toDoDetailFragment_to_editToDoFragment"
+            app:destination="@id/editToDoFragment" />
+    </fragment>
+</navigation>

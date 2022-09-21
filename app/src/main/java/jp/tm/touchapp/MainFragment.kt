@@ -9,12 +9,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.room.Room
+import androidx.viewpager2.widget.ViewPager2
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MainFragment : Fragment() {
+// コンストラクタにレイアウトファイルをせっていすることで、inflateしなくても取り扱えるようになるっぽい
+class MainFragment : Fragment(R.layout.fragment_main) {
 
     private lateinit var db: MemoDatabase
     private lateinit var dao: MemoDAO
@@ -35,6 +37,22 @@ class MainFragment : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_main, container, false)
+        // TODO カルーセルでの表示を一旦中止
+//        val cardPager = view.findViewById<ViewPager2>(R.id.cardPager)
+//        cardPager   .adapter = CardSlideAdapter(listOf(1, 2, 3, 4))
+//
+//        val margin = view.context.resources.getDimension(R.dimen.card_margin)
+//        val offset = view.context.resources.getDimension(R.dimen.card_offset)
+//
+//        cardPager.offscreenPageLimit = 2
+//        cardPager.setPageTransformer { page, position ->
+//            val offset = position * (2 * offset + margin)
+//            page.translationX = -offset
+//        }
+
+
+
+
         view.findViewById<Button>(R.id.button).setOnClickListener {
             // ボタンクリック時にDBへ登録する
             GlobalScope.launch {
