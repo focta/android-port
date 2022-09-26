@@ -4,16 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.room.Room
-import androidx.viewpager2.widget.ViewPager2
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 // コンストラクタにレイアウトファイルをせっていすることで、inflateしなくても取り扱えるようになるっぽい
 class MainFragment : Fragment(R.layout.fragment_main) {
@@ -50,9 +41,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 //            val offset = position * (2 * offset + margin)
 //            page.translationX = -offset
 //        }
-
-
-
 
 //        view.findViewById<Button>(R.id.button).setOnClickListener {
 //            // ボタンクリック時にDBへ登録する
