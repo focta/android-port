@@ -20,17 +20,17 @@
     </fragment>
     <fragment
         android:id="@+id/createToDoFragment"
-        android:name="jp.tm.touchapp.CreateToDoFragment"
+        android:name="jp.tm.touchapp.page.create.CreateToDoFragment"
         android:label="fragment_create_to_do"
         tools:layout="@layout/fragment_create_to_do" />
     <fragment
         android:id="@+id/editToDoFragment"
-        android:name="jp.tm.touchapp.EditToDoFragment"
+        android:name="jp.tm.touchapp.page.edit.EditToDoFragment"
         android:label="fragment_edit_to_do"
         tools:layout="@layout/fragment_edit_to_do" />
     <fragment
         android:id="@+id/toDoDetailFragment"
-        android:name="jp.tm.touchapp.ToDoDetailFragment"
+        android:name="jp.tm.touchapp.page.detail.ToDoDetailFragment"
         android:label="fragment_to_do_detail"
         tools:layout="@layout/fragment_to_do_detail" >
         <action

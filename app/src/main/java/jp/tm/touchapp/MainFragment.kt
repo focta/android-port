@@ -5,12 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 
 // コンストラクタにレイアウトファイルをせっていすることで、inflateしなくても取り扱えるようになるっぽい
 class MainFragment : Fragment(R.layout.fragment_main) {
 
 //    private lateinit var db: MemoDatabase
 //    private lateinit var dao: MemoDAO
+
+    // Delegated Properties らしい
+    private val vm: MainViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // DB登録の処理、モケラボの講座の最中なので一旦閉じる
