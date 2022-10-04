@@ -5,6 +5,11 @@ plugins {
 
     // roomの追加の際に追加した項目
     id 'kotlin-kapt'
+
+    // hilt
+    id 'com.google.dagger.hilt.android'
+//    id 'dagger.hilt.android.plugin'
+
 }
 
 android {
@@ -33,8 +38,13 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    // viewBindingの設定をtrueで設定した
     buildFeatures {
         viewBinding true
+    }
+    // viewBindingの設定をtrueで設定した
+    viewBinding {
+        enabled = true
     }
 }
 
@@ -62,4 +72,12 @@ dependencies {
 
     // viewModel の導入
     implementation 'androidx.fragment:fragment-ktx:1.3.0-beta02'
+    // `Duplicate class androidx.lifecycle.ViewModelLazy found in modules lifecycle-viewmodel-2.5.1-runtime` のようなメッセージが出力したため、以下の2つも追加
+    implementation "androidx.lifecycle:lifecycle-viewmodel:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+
+    // hiltの導入
+    implementation 'com.google.dagger:hilt-android:2.44'
+    annotationProcessor 'com.google.dagger:hilt-compiler:2.44'
+    kapt 'com.google.dagger:hilt-compiler:2.44'
 }

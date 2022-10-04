@@ -15,7 +15,7 @@
             app:destination="@id/toDoDetailFragment"
             app:enterAnim="@anim/nav_default_enter_anim" />
         <action
-            android:id="@+id/action_mainFragment2_to_createToDoFragment"
+            android:id="@+id/action_mainFragment_to_createToDoFragment"
             app:destination="@id/createToDoFragment" />
     </fragment>
     <fragment

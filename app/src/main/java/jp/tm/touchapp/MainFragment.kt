@@ -6,8 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
+import jp.tm.touchapp.databinding.FragmentMainBinding
 
 // コンストラクタにレイアウトファイルをせっていすることで、inflateしなくても取り扱えるようになるっぽい
+// hiltの導入、これをつけることでhiltがDI対象のクラスとして抽出してくれる模様
+@AndroidEntryPoint
 class MainFragment : Fragment(R.layout.fragment_main) {
 
 //    private lateinit var db: MemoDatabase
@@ -16,6 +21,23 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     // Delegated Properties らしい
     private val vm: MainViewModel by viewModels()
 
+    // Fragment名(FragmentMain)を指定することでviewModelの設定を利用できる
+    private var _binding: FragmentMainBinding? = null
+    private val binding: FragmentMainBinding get() = _binding!!
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        this._binding = FragmentMainBinding.bind(view)
+
+        binding.fab.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_createToDoFragment)
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        this._binding = null
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // DB登録の処理、モケラボの講座の最中なので一旦閉じる
@@ -26,7 +48,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 //            "memo.db"
 //        ).build()
 //        this.dao = this.db.memoDao()
-
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
